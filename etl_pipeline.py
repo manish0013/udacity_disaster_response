@@ -34,7 +34,7 @@ def clean_data(df):
     df = df[~df.duplicated()]
 
 def save_data(df, database_filename):
-    engine = create_engine('sqlite:///TwitterDisasterDB.db')
+    engine = create_engine('sqlite:///' + database_filename)
     df.to_sql('twt_disaster_clean', engine, if_exists='replace',index=False)
 
 
