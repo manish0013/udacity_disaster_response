@@ -59,7 +59,7 @@ def index():
         words_freq =sorted(words_freq, key = lambda x: x[1], reverse=True)
         return words_freq[:n]
     stop = text.ENGLISH_STOP_WORDS
-
+    # corpus to be used to identify top n words
     corpus_news=   df[df['genre'] == 'news']['message'].apply(lambda x: ' '.join([word for word in x.split() if word not in (stop)]))
     corpus_direct= df[df['genre'] == 'direct']['message'].apply(lambda x: ' '.join([word for word in x.split() if word not in (stop)]))
     corpus_social= df[df['genre'] == 'social']['message'].apply(lambda x: ' '.join([word for word in x.split() if word not in (stop)]))
